@@ -6,7 +6,18 @@
 
 <hr>
 <br>
+
+
+<!-- Event Binding -->
+
+<hr>
+<h2>Event Binding</h2>
+
 <button 
 [style.backgroundColor]="'orange'"
 [style.border]="isActive? '5px solid ':'5px solid blue'"
+(click)="onClick()"
 >Click</button>
+
+<input type="text" (keypress)="onKeypress($event)">
+<input type="text" (keyup.enter)="onEnterPressed()">
