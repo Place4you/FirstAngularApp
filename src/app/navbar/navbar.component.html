@@ -1,1 +1,12 @@
 <h1 class="simple">This text is direct from navbar component</h1>
+
+<!-- class binding -->
+
+<button style="padding: 15px; font-weight: bold; border-radius: 20px; border: 15px;" [class.active]="isActive" [class.no-active]="!isActive">Send me </button>
+
+<hr>
+<br>
+<button 
+[style.backgroundColor]="'orange'"
+[style.border]="isActive? '5px solid ':'5px solid blue'"
+>Click</button>

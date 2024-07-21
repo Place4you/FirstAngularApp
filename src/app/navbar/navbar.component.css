@@ -6,3 +6,19 @@
     font-weight: 600px;
 
 }
+
+.active {
+    color: aqua;
+    background-color: green;
+    border: 20px solid yellow; /* Increased width and high contrast color */
+    font-weight: 700;
+  }
+  
+  .no-active {
+    color: aqua;
+    background-color: yellow;
+    border: 20px solid blue; /* Wider border for better visibility */
+    font-weight: 700;
+  }
+  
+  
