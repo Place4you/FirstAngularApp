@@ -61,7 +61,7 @@ export class AppNavbar{
         }
     }
 
-    deleteRecord(user: HTMLButtonElement) {
-        this.users = this.users.filter(u => u.id !== user.id);
+    deleteRecord($user: HTMLButtonElement) {
+        this.users = this.users.filter(u => u.id !== $user.id);
       }
 }
