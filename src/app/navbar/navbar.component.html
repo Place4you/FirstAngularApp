@@ -103,6 +103,12 @@
     <input type="text" placeholder="Add your Email" #email>
     <button (click)="addNewUser(name.value, email.value)">Add New User</button>
   </div>
+
+  <!-- @if( users.length == 0 ){
+   
+  } -->
+
+  
 <table style="width: 60%; margin-left: 10vw; text-align: center; border-radius: 20px; border-collapse: collapse; margin-top: 20px; border: 1px solid #ddd;">
     <thead style="background-color: #f4f4f4;">
         <tr>
@@ -121,7 +127,12 @@
                 <td style="padding: 8px; text-align: left;"> <button (click)="deleteRecord(user)">Delete</button></td>
             </tr>
         }
+      @empty {
+        <h2  style="text-align: center; color: rgb(201, 21, 21);"> No record Avaiable</h2>
+      }
+        
     </tbody>
 </table>
+  
  
 

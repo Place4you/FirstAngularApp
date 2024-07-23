@@ -1,3 +1,4 @@
+import { style } from "@angular/animations";
 import { NgTemplateOutlet } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -69,7 +70,16 @@ export class AppNavbar{
       }
 
       addNewUser(name:string, email:string){
+        if(this.users.length > 0)
+        {
         const index = this.users[this.users.length-1].id+1;
         this.users.push({ id: index, username: name, email: email })
+
+        }
+        else{
+        this.users.push({ id: 0, username: name, email: email })
+
+        }
+        
     }
 }
