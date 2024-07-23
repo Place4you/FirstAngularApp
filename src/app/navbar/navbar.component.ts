@@ -1,6 +1,7 @@
 import { NgTemplateOutlet } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { lastValueFrom } from "rxjs";
 
 @Component({
     selector:'app-navbar',
@@ -61,7 +62,14 @@ export class AppNavbar{
         }
     }
 
-    deleteRecord($user: HTMLButtonElement) {
-        this.users = this.users.filter(u => u.id !== $user.id);
+    deleteRecord(user: object) {
+        const index =  this.users.indexOf(user);
+        console.log('deleted');
+        this.users.splice(index,1);
       }
+
+      addNewUser(name:string, email:string){
+        const index = this.users[this.users.length-1].id+1;
+        this.users.push({ id: index, username: name, email: email })
+    }
 }
