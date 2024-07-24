@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
+import { HeroImageComponent } from './hero-image/hero-image.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar,HeaderComponent ],
+  imports: [RouterOutlet, AppNavbar,HeaderComponent, HeroImageComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

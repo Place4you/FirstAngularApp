@@ -1,1 +1,29 @@
+
+<hr>
+ <div style="margin: 30px; background-color: aqua;"></div>
 <p>hero-image works!</p>
+
+<h3>Switch Cases</h3>
+<p>it will display Admin or Member based on variable value</p>
+<!-- @switch (person) {
+    @case ('admin') {
+        <p  style="background-color: black; color: wheat; font-size: boolder display: inline-block;">Welcome Admin</p>
+    }
+    @case ('member') {
+        <p style="background-color: black; color: wheat; font-size: boolder display: inline-block;">Welcome to Member Dashboard</p>
+    }
+    @default {
+        <p style="background-color: black; color: wheat; font-size: boolder display: inline-block;">Invalid Login Details</p>
+    }
+} -->
+
+<h3>Through Ng Style</h3>
+<p [ngStyle]="{
+    'color': test ? 'grey' : 'yellow',
+    'background-color': test? 'wheat': 'black',
+    'text-decoration': test? '' : 'italic',
+}">Welcome Admin</p>
+
+<br>
+<h3>Through Ng Class</h3>
+<p [class.enable]="testr" [class.disable]="!testr" >Welcome Admin</p>

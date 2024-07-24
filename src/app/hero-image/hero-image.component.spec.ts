@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HeroImageComponent } from './hero-image.component';
 
 describe('HeroImageComponent', () => {

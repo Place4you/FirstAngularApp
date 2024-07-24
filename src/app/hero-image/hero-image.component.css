@@ -1,0 +1,10 @@
+.enable{
+    color: grey;
+    background-color:wheat;
+}
+
+.disable{
+    color: yellow;
+    background-color:black;
+    text-decoration: italic,
+}
