@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,11 +15,14 @@ import { PostTitleComponent } from './post-title/post-title.component';
 export class AppComponent {
   title = 'FirstAngularApp';
   new = 'checking the variable';
+  recevied:string = ""; 
 // In your parent component TypeScript
 parentData: string = 'Coming from parent Component';
 
 fromChild($event:any):void {
   console.log($event);
+  this.recevied = $event;
+
 }
 
 
