@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-hero-image',
   standalone: true,
-  imports: [NgStyle, NgClass],
+  imports: [NgStyle,NgClass],
   templateUrl: './hero-image.component.html',
   styleUrl: './hero-image.component.css'
 })
