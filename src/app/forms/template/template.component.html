@@ -3,19 +3,39 @@
 <form class="row g-3">
     <div class="col-md-4">
       <label for="validationDefault01" class="form-label">First name</label>
-      <input type="text"  class="form-control"  name="firstname" [(ngModel)]="client.firstname"  required>
+      <input type="text"  class="form-control"  name="firstname" #fname="ngModel" [(ngModel)]="client.firstname"  required minlength="4">
+       <div class="text-danger">
+        @if((fname.touched || fname.dirty) && fname.errors?.['required'])
+        { 
+        <span>This is Required</span>
+        }
+        @else if((fname.touched || fname.dirty) && fname.errors?.['minlength']){
+            <span>Minimum lenght is 4 character</span>
+
+        }
+    </div>
     </div>
     <div class="col-md-4">
       <label for="validationDefault02" class="form-label">Last name</label>
-      <input type="text" class="form-control"  name="lastname" [(ngModel)]="client.lastname"  required>
+      <input type="text" class="form-control"  name="lastname" #fname="ngModel" [(ngModel)]="client.lastname"  required>
+      <div class="text-danger">
+        @if((fname.touched || fname.dirty) && fname.errors?.['required'])
+        { 
+        <span>This is Required</span>
+        }
+        @else if((fname.touched || fname.dirty) && fname.errors?.['minlength']){
+            <span>Minimum lenght is 4 character</span>
+
+        }
+    </div>
     </div>
     <div class="col-md-6">
       <label for="validationDefault03" class="form-label">City</label>
-      <input type="text" class="form-control" name="city"   [(ngModel)]="client.city"  required>
+      <input type="text" class="form-control" name="city"  #fname="ngModel"  [(ngModel)]="client.city"  required>
     </div>
     <div class="col-md-3">
       <label  class="form-label">Region</label>
-      <select class="form-select" name="region"  [(ngModel)]="client.region" required>
+      <select class="form-select" name="region" #fname="ngModel" [(ngModel)]="client.region" required>
         <option selected disabled value="">Choose...</option>
         <option>Ajk</option>
         <option>KPK</option>
@@ -27,11 +47,11 @@
     </div>
     <div class="col-md-3">
       <label  class="form-label">Zip</label>
-      <input type="text" class="form-control"  name="zip" [(ngModel)]="client.zip" required>
+      <input type="text" class="form-control"  name="zip" #fname="ngModel" [(ngModel)]="client.zip" required>
     </div>
     <div class="col-12">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value=""  name="isAcceptedTerms"  [(ngModel)]="client.isAcceptedTerms" required>
+        <input class="form-check-input" type="checkbox" value=""  name="isAcceptedTerms" #fname="ngModel" [(ngModel)]="client.isAcceptedTerms" required>
         <label class="form-check-label">
           Agree to terms and conditions
         </label>
@@ -43,5 +63,5 @@
   </form>
 
   <div>
-    {{client | json}}
+    <!-- {{client | json}} -->
   </div>
