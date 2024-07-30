@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-template',
   standalone: true,
-  imports: [ FormsModule],
+  imports: [ FormsModule, JsonPipe],
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.css']
 })

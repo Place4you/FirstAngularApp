@@ -38,6 +38,10 @@
       </div>
     </div>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit" onclick="onSubmit()">Submit form</button>
+      <button class="btn btn-primary" type="submit" (onclick)="onSubmit()">Submit form</button>
     </div>
   </form>
+
+  <div>
+    {{client | json}}
+  </div>
