@@ -1,0 +1,38 @@
+<h1> Pipes are used to format data using '|' before showing in html</h1>
+<div class="container mt-5">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Without Pipe</th>
+            <th>With Pipe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{showcase}}</td>
+            <td>uppercase pipe= {{showcase | uppercase}}</td>
+          </tr>
+          <tr>
+            <td>{{showcase}}</td>
+            <td>lowercase pipe  ={{showcase | lowercase}}</td>
+          </tr>
+          <tr>
+            <td>{{showcase}}</td>
+            <td>title pipe  ={{showcase | titlecase}}</td>
+          </tr>
+          <tr>
+            <td>{{student}}</td>
+            <td>json pipe  ={{student | json}}</td>
+          </tr>
+
+          <tr>
+            <td>{{date}}</td>
+            <td>Date pipe  ={{date | date:'hh:mm:ss'}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <p class=" alert-success alert bg-gray">Note: Json pipe will show Object data as string</p>
+  </div>

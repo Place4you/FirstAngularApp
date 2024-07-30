@@ -1,3 +1,29 @@
 import { Routes } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { HeroImageComponent } from './hero-image/hero-image.component';
+import { PostTitleComponent } from './post-title/post-title.component';
+import { AppNavbar } from './navbar/navbar.component';
+import { PipesComponent } from './pipes/pipes.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+        path:'add-header',
+        component: HeaderComponent
+    },
+    {
+        path:'add-hero',
+        component:HeroImageComponent
+    },
+    {
+        path:'add-postTitle',
+        component:PostTitleComponent
+    },
+    {
+        path:'add-navbar',
+        component:AppNavbar
+    },
+    {
+        path:'add-pipes',
+        component:PipesComponent
+    }
+];
