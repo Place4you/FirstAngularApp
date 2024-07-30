@@ -4,6 +4,7 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
 import { PostTitleComponent } from './post-title/post-title.component';
 import { AppNavbar } from './navbar/navbar.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { TemplateComponent } from './forms/template/template.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path:'add-pipes',
         component:PipesComponent
+    },
+    {
+        path:'add-template',
+        component:TemplateComponent
     }
 ];
