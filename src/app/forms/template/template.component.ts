@@ -10,4 +10,13 @@ import { FormsModule, NgModel } from '@angular/forms';
 })
 export class TemplateComponent {
 
+  client: any ={
+    firstname:'',
+    lastname:'',
+    city:'',
+    state:'',
+    zip:''
+
+  }
+  
 }
