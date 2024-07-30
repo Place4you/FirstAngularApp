@@ -1,22 +1,28 @@
-import { Component, NgModule } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-template',
   standalone: true,
-  imports: [FormsModule],
+  imports: [ FormsModule],
   templateUrl: './template.component.html',
-  styleUrl: './template.component.css'
+  styleUrls: ['./template.component.css']
 })
 export class TemplateComponent {
+  client: any = {
+    firstname: '',
+    lastname: '',
+    city: '',
+    region: '',
+    zip: '',
+    isAcceptedTerms: false
+  };
 
-  client: any ={
-    firstname:'',
-    lastname:'',
-    city:'',
-    state:'',
-    zip:''
-
+  formValue: any;
+  onSubmit(){
+    debugger;
+    this.formValue = this.client;
+    console.log(this.formValue);
   }
-  
 }
