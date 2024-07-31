@@ -5,6 +5,8 @@ import { PostTitleComponent } from './post-title/post-title.component';
 import { AppNavbar } from './navbar/navbar.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { TemplateComponent } from './forms/template/template.component';
+import { ReactiveComponent } from './forms/reactive/reactive.component';
+import { FormsComponent } from './forms/forms.component';
 
 export const routes: Routes = [
     {
@@ -28,7 +30,15 @@ export const routes: Routes = [
         component:PipesComponent
     },
     {
+        path:'add-form',
+        component:FormsComponent
+    },
+    {
         path:'add-template',
         component:TemplateComponent
+    },
+    {
+        path:'add-reactive',
+        component:ReactiveComponent
     }
 ];
