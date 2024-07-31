@@ -4,20 +4,26 @@
 <form [formGroup]="studentForm">
     <div class="mb-3">
       <label class="form-label">Name</label>
-      <input type="text"  name="name">
+      <input type="text" class="form-control" formControlName="name" name="name">
     </div>
     <div class="mb-3">
       <label class="form-label">Email</label>
-      <input type="email"  name="email">
+      <input type="email" class="form-control" formControlName="email" name="email">
     </div>
     <div class="mb-3">
       <label class="form-label">Password</label>
-      <input type="password" name="password">
+      <input type="password" class="form-control" formControlName="password" name="password">
     </div>
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" name="terms">
+      <input type="checkbox" class="form-check-input" formControlName="isAcceptedTerms" name="terms">
       <label class="form-check-label">Accept Terms and Conditions</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" (click)="saveForm()" class="btn btn-primary">Submit</button>
   </form>
-  
+<hr>
+<br> <br>
+@if (formValues) {
+    <p>here is your form values</p>
+  <div>
+    <pre> {{ formValues | json}}</pre></div>
+}

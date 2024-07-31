@@ -1,10 +1,11 @@
+import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, JsonPipe],
   templateUrl: './reactive.component.html',
   styleUrl: './reactive.component.css'
 })
@@ -19,6 +20,7 @@ export class ReactiveComponent {
 
   formValues:any;
   saveForm(){
-    this.formValues = this.studentForm;
+    this.formValues = this.studentForm.value;
+    
   }
 }
