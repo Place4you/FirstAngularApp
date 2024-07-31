@@ -1,4 +1,4 @@
-<h2>Reactive Form here</h2>
+<h2>Template Form here</h2>
 <h2 style="font-size: larger;">Please Fill the form Carefully.</h2>
 <hr>
 <form class="row g-3">
@@ -18,13 +18,13 @@
     </div>
     <div class="col-md-4">
       <label for="validationDefault02" class="form-label">Last name</label>
-      <input type="text" class="form-control"  name="lastname" #fname="ngModel" [(ngModel)]="client.lastname"  required>
+      <input type="text" class="form-control"  name="lastname" #flast="ngModel" [(ngModel)]="client.lastname"  required minlength="4">
       <div class="text-danger">
-        @if((fname.touched || fname.dirty) && fname.errors?.['required'])
+        @if((flast.touched || flast.dirty) && flast.errors?.['required'])
         { 
         <span>This is Required</span>
         }
-        @else if((fname.touched || fname.dirty) && fname.errors?.['minlength']){
+        @else if((flast.touched || flast.dirty) && flast.errors?.['minlength']){
             <span>Minimum lenght is 4 character</span>
 
         }

@@ -1,14 +1,15 @@
-<h1 style="font-size: larger; font-style: italc;"> Choose which form to display</h1>
+<h1 style=" font-style: italc; text-align: center; margin-top: 50px;"> Choose which form to display</h1>
 
-<div style="width: 90%;">
-    <div style="width: 50%; border: 3px solid;">
-        <button (click)="template()">Show Template Form</button>
+<div class="w-100 d-flex">
+    <div class="w-50 d-flex justify-content-center align-items-center min-h-150">
+        <button (click)="template()" class="btn btn-primary" style="border-radius: 5px;">Show Template Form</button>
     </div>
-    <div style="width: 50%; border: 3px solid;">
-        <button (click)="reactive()">Show Reactive Form</button>
-
+    <div class="w-50 d-flex justify-content-center align-items-center min-h-150">
+        <button (click)="reactive()" class="btn btn-primary" style="border-radius: 5px;">Show Reactive Form</button>
     </div>
 </div>
+
+
 
 @if(templateform){
     <app-template></app-template>

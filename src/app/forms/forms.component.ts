@@ -16,9 +16,17 @@ export class FormsComponent {
 
   template(){
     this.templateform = true;
+    this.reactiveform= false;
+    console.log(this.templateform,this.reactiveform);
+    
+
   }
 
   reactive(){
     this.reactiveform= true;
+    this.templateform= false;
+    console.log(this.templateform,this.reactiveform);
+
+
   }
 }
