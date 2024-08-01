@@ -1,13 +1,26 @@
 <h1 style=" font-style: italc; text-align: center; margin-top: 50px;"> TEST GET & POST api
 <div class="w-100 d-flex">
     <div class="w-50 d-flex justify-content-center align-items-center min-h-150">
-        <button (click)="getapi()" class="btn btn-primary" style="border-radius: 5px;">Get Api Data</button>
     </div>
     <div class="w-50 d-flex justify-content-center align-items-center min-h-150">
-        <button (click)="postapi()" class="btn btn-primary" style="border-radius: 5px;">Post Data to Api</button>
     </div>
 </div>
 
+<div class="d-flex" style="height: 50vh;">
+    <div class="flex-fill border border-success rounded m-2">
+        <button (click)="callGetApi()" class="btn btn-primary" style="border-radius: 5px;">Get Api Data</button>
+        @if(get){
+            <app-getapi></app-getapi>
+        }
+    </div>
+    <div class="flex-fill border border-success rounded m-2">
+        <button (click)="callPostApi()" class="btn btn-primary" style="border-radius: 5px;">Post Data to Api</button>
+        @if(post){
+            <app-postapi></app-postapi>
+        }
+    </div>
+  </div>
+  
 
 
 @if(templateform){
