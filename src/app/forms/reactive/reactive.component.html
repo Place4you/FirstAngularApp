@@ -3,9 +3,17 @@
 
 <form [formGroup]="studentForm">
     <div class="mb-3">
-      <label class="form-label">Name</label>
-      <input type="text" class="form-control" formControlName="name" name="name">
-    </div>
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name" name="name">
+        <div class="alert alert-danger mt-2">
+          @if (studentForm.controls['name'].touched && studentForm.controls['name'].errors?.['required']) {
+            <span>Field is Required</span>
+          } @if (studentForm.controls['name'].touched && studentForm.controls['name'].errors?.['minlength']) {
+            <span>Min length is 4</span>
+          }
+        </div>
+      </div>
+      
     <div class="mb-3">
       <label class="form-label">Email</label>
       <input type="email" class="form-control" formControlName="email" name="email">
