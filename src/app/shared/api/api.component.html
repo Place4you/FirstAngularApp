@@ -1,0 +1,18 @@
+<h1 style=" font-style: italc; text-align: center; margin-top: 50px;"> TEST GET & POST api
+<div class="w-100 d-flex">
+    <div class="w-50 d-flex justify-content-center align-items-center min-h-150">
+        <button (click)="getapi()" class="btn btn-primary" style="border-radius: 5px;">Get Api Data</button>
+    </div>
+    <div class="w-50 d-flex justify-content-center align-items-center min-h-150">
+        <button (click)="postapi()" class="btn btn-primary" style="border-radius: 5px;">Post Data to Api</button>
+    </div>
+</div>
+
+
+
+@if(templateform){
+    <app-template></app-template>
+}
+@else if(reactiveform){
+    <app-reactive></app-reactive>
+}

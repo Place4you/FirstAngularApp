@@ -7,6 +7,9 @@ import { PipesComponent } from './pipes/pipes.component';
 import { TemplateComponent } from './forms/template/template.component';
 import { ReactiveComponent } from './forms/reactive/reactive.component';
 import { FormsComponent } from './forms/forms.component';
+import { GetapiComponent } from './shared/api/getapi/getapi.component';
+import { PostapiComponent } from './shared/api/postapi/postapi.component';
+import { ApiComponent } from './shared/api/api.component';
 
 export const routes: Routes = [
     {
@@ -40,5 +43,17 @@ export const routes: Routes = [
     {
         path:'add-reactive',
         component:ReactiveComponent
+    },
+    {
+        path:'add-getapi',
+        component:GetapiComponent
+    },
+    {
+        path:'add-postapi',
+        component:PostapiComponent
+    },
+    {
+        path:'add-api',
+        component:ApiComponent
     }
 ];
