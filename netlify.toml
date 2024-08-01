@@ -1,0 +1,8 @@
+[build]
+  publish = "dist/your-angular-app"
+  command = "ng build --prod"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
