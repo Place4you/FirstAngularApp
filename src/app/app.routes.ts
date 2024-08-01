@@ -53,7 +53,7 @@ export const routes: Routes = [
         component:PostapiComponent
     },
     {
-        path:'add-api',
+        path:'add-apicomp',
         component:ApiComponent
     }
 ];

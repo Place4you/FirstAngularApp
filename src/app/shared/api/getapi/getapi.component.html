@@ -1,4 +1,38 @@
-<div class="bg-dark">
-@for(lis of list;track lis){
-    <option>lis.name</option>
-}</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12 d-inline-block">
+      <h3 class="mb-3">Enter Your GET API URL</h3>
+      <input
+        type="text"
+        class="form-control mb-3 d-inline-block"
+        value="https://dummyjson.com/c/3029-d29f-4014-9fb4"
+        [(ngModel)]="apiurl"
+      />
+      <button
+        (click)="getusers()"
+        class="btn btn-primary mb-3 btn-press-effect"
+      >
+        Get API Data
+      </button>
+      <h4>Results:</h4>
+      <pre
+        style="
+          background-color: #263238;
+          font-family: Courier New;
+          font-weight: bold;
+          font-size: 1rem;
+          display: block;
+          min-width: 50%;
+          max-width: 100%;
+          overflow: scroll;
+          line-height: 1.25rem;
+          padding: 20px;
+          color: #94f9b3;
+          background-color: #263238;
+          border-radius: 0.5rem;
+        "
+        >{{ data | json }}</pre
+      >
+    </div>
+  </div>
+</div>

@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+.heading {
+    text-align: center;
+}
+
+.content-container {
+    margin-left: 30px;
+}
+
+.component-info,
+.folder-structure {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+
+.subheading {
+    font-size: 2em;
+    margin: 0;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.code-block {
+    background-color: black;
+    font-style: italic;
+    color: rgb(199, 197, 197);
+    margin: 1% 10% 1% 2%;
+    padding: 1% 10% 1% 2%;
+    display: inline-block;
+}
+
+.tip {
+    background-color: yellow;
+    font-style: italic;
+    display: inline;
+    font-weight: lighter;
+}
+
+.btn-press-effect:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }

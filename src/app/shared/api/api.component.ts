@@ -15,6 +15,7 @@ export class ApiComponent {
   post: boolean=false;
     
   callGetApi(){
+    debugger;
     this.get= true;
   }
   callPostApi(){

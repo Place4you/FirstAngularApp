@@ -1,19 +1,12 @@
-<h1 style=" font-style: italc; text-align: center; margin-top: 50px;"> TEST GET & POST api
-<div class="w-100 d-flex">
-    <div class="w-50 d-flex justify-content-center align-items-center min-h-150">
-    </div>
-    <div class="w-50 d-flex justify-content-center align-items-center min-h-150">
-    </div>
-</div>
+<h1 style=" font-style: italc; text-align: center; margin-top: 50px;"> TEST GET & POST api </h1>
 
-<div class="d-flex" style="height: 50vh;">
-    <div class="flex-fill border border-success rounded m-2">
-        <button (click)="callGetApi()" class="btn btn-primary" style="border-radius: 5px;">Get Api Data</button>
-        @if(get){
+<div class="d-flex flex-column w-100">
+    <div class="flex flex-column p-2  justify-content-center border border-success rounded m-2 w-100 bg-light">
+      
             <app-getapi></app-getapi>
-        }
+
     </div>
-    <div class="flex-fill border border-success rounded m-2">
+    <div class="flex flex-column p-2 border border-success rounded m-2 w-100 bg-light">
         <button (click)="callPostApi()" class="btn btn-primary" style="border-radius: 5px;">Post Data to Api</button>
         @if(post){
             <app-postapi></app-postapi>
@@ -21,11 +14,3 @@
     </div>
   </div>
   
-
-
-@if(templateform){
-    <app-template></app-template>
-}
-@else if(reactiveform){
-    <app-reactive></app-reactive>
-}
