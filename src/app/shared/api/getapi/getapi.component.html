@@ -15,6 +15,12 @@
         Get API Data
       </button>
       <h4>Results:</h4>
+      @if(errorMessage){
+        <div  class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      }
+      @else{
       <pre
         style="
           background-color: #263238;
@@ -33,6 +39,8 @@
         "
         >{{ data | json }}</pre
       >
+     
+   }
     </div>
   </div>
 </div>

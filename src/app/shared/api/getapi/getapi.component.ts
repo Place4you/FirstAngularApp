@@ -17,13 +17,20 @@ export class GetapiComponent {
   }
   list:any[]=[];
   data:any;
-  apiurl:string='https://dummyjson.com/c/3029-d29f-4014-9fb4';
-  getusers(){
-  
-    this.http.get(this.apiurl).subscribe((res:any)=>{
- 
-      this.data = res;
-    })
+  apiurl:string="https://dummyjson.com/c/3029-d29f-4014-9fb4";
+  errorMessage:any;
+
+  getusers() {
+    this.http.get(this.apiurl).subscribe(
+      (res: any) => {
+        this.data = res;
+        this.errorMessage = null;
+      },
+      (error) => {
+        this.errorMessage = "Failed to fetch data. Please try again later.";
+        this.data=null;
+      }
+    );
   }
   
 
