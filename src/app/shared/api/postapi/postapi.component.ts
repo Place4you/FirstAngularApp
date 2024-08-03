@@ -16,13 +16,17 @@ export class PostapiComponent implements OnInit {
   getDepartmentsUrl: string = "https://projectapi.gerasim.in/api/Complaint/GetParentDepartment";
   errorMessage: string | null = null;
   successMessage: string | null = null;
-  dept: any[] = [];
   loading: boolean = false;
   update: boolean = false;
 
+  departmentLogo = '';
+  departmentName = '';
   // Form properties
-  departmentName: string = '';
-  departmentLogo: string = '';
+  dept:any = {
+    departmentId: 0, // Or set an appropriate ID if needed
+    departmentName: this.departmentName,
+    departmentLogo: this.departmentLogo
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -30,11 +34,11 @@ export class PostapiComponent implements OnInit {
     this.getDepartment();
   }
 // Add a new Department
-  addDepartment() {
+  addDepartment(dept:any) {
     const data = {
       departmentId: 0, // Or set an appropriate ID if needed
-      departmentName: this.departmentName,
-      departmentLogo: this.departmentLogo
+      departmentName: dept.departmentName,
+      departmentLogo: dept.departmentLogo
     };
 
     this.http.post(this.apiurl, data).subscribe(
