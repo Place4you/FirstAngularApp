@@ -18,6 +18,7 @@ export class PostapiComponent implements OnInit {
   successMessage: string | null = null;
   dept: any[] = [];
   loading: boolean = false;
+  update: boolean = false;
 
   // Form properties
   departmentName: string = '';
@@ -28,7 +29,7 @@ export class PostapiComponent implements OnInit {
   ngOnInit() {
     this.getDepartment();
   }
-
+// Add a new Department
   addDepartment() {
     const data = {
       departmentId: 0, // Or set an appropriate ID if needed
@@ -51,6 +52,7 @@ export class PostapiComponent implements OnInit {
     );
   }
 
+// Fetch Department data
   getDepartment() {
     this.loading = true;
 
@@ -65,5 +67,19 @@ export class PostapiComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  // Edit exisitng Department
+
+  editDept(dep:any){
+    this.dept = dep;
+    this.update = true;
+    debugger;
+
+  }
+
+  // Delete the Department
+  deleteDept(id:number){
+
   }
 }

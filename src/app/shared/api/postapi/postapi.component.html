@@ -40,7 +40,14 @@
               <label for="departmentLogo" class="form-label">Department Logo</label>
               <input type="text" id="departmentLogo" class="form-control" [(ngModel)]="departmentLogo" name="departmentLogo" required>
             </div>
-            <button type="submit" class="btn btn-primary">Add Department</button>
+            @if(!update){
+                <button type="submit" class="btn btn-primary">Add Department</button>
+
+            }
+            @else{
+                <button type="submit" class="btn btn-warning">Update Department</button>
+
+            }
           </form>
     
           <!-- Error and Success Messages -->
@@ -79,6 +86,9 @@
                 <th scope="col">Name</th>
                 <th scope="col">Logo</th>
                 <th scope="col">Department</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+
               </tr>
             </thead>
             <tbody>
@@ -88,6 +98,8 @@
                         <td>{{ dep.departmentName }}</td>
                         <td>{{ dep.departmentLogo }}</td>
                         <td>{{ dep.departmentId }}</td>
+                        <td><button class="btn btn-success" (click)="editDept(dep)" >Edit</button></td>
+                        <td><button class="btn btn-danger" (click)="deleteDept(dep.departmentId)" >Delete</button></td>
                       </tr>
                 }
              
