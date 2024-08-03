@@ -18,6 +18,42 @@
           <code>https://projectapi.gerasim.in/api/Complaint/AddNewDepartment</code>
           for testing POST API. The API accepts the following format, so make sure data is in this format:
         </p>
+
+            <pre style="color: #A2FCA2;" class="p-3 border rounded d-inline-block float-left   bg-dark"> &#123;
+    &quot;departmentId&quot;: 833,<br>
+    &quot;departmentName&quot;: &quot;designer&quot;,<br>
+    &quot;departmentLogo&quot;: &quot;designer.jpg&quot;
+ &#125;
+              </pre>
+
+         <!-- Test POST API Form -->
+         <h2 class="text-center mt-5" style="font-style: italic;">
+            TEST <span class="text-warning fw-bold">POST</span> API HERE
+          </h2>
+    
+          <form (ngSubmit)="addDepartment()" class="mt-3">
+            <div class="mb-3">
+              <label for="departmentName" class="form-label">Department Name</label>
+              <input type="text" id="departmentName" class="form-control" [(ngModel)]="departmentName" name="departmentName" required>
+            </div>
+            <div class="mb-3">
+              <label for="departmentLogo" class="form-label">Department Logo</label>
+              <input type="text" id="departmentLogo" class="form-control" [(ngModel)]="departmentLogo" name="departmentLogo" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Department</button>
+          </form>
+    
+          <!-- Error and Success Messages -->
+          @if(errorMessage){
+              <div  class="alert alert-danger mt-3" role="alert">
+              {{ errorMessage }}
+              </div>
+           }
+          @if(successMessage){
+              <div  class="alert alert-success mt-3" role="alert">
+              {{ successMessage }}
+              </div>
+            }
   
         <!-- Department Lists Table -->
         <div class="container mt-3">
@@ -65,31 +101,7 @@
   
         <hr>
   
-        <!-- Test POST API Form -->
-        <h2 class="text-center mt-5" style="font-style: italic;">
-          TEST <span class="text-warning fw-bold">POST</span> API HERE
-        </h2>
-  
-        <form (ngSubmit)="addDepartment()" class="mt-3">
-          <div class="mb-3">
-            <label for="departmentName" class="form-label">Department Name</label>
-            <input type="text" id="departmentName" class="form-control" [(ngModel)]="departmentName" name="departmentName" required>
-          </div>
-          <div class="mb-3">
-            <label for="departmentLogo" class="form-label">Department Logo</label>
-            <input type="text" id="departmentLogo" class="form-control" [(ngModel)]="departmentLogo" name="departmentLogo" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Add Department</button>
-        </form>
-  
-        <!-- Error and Success Messages -->
-        <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
-          {{ errorMessage }}
-        </div>
-  
-        <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
-          {{ successMessage }}
-        </div>
+       
       </div>
     </div>
   </div>
