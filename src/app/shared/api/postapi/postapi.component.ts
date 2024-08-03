@@ -53,12 +53,10 @@ export class PostapiComponent implements OnInit {
 
   getDepartment() {
     this.loading = true;
-    debugger;
 
     this.http.get<{ data: any[] }>(this.getDepartmentsUrl).subscribe(
       (res) => {
         this.dept = res.data;
-        debugger;
         this.errorMessage = null;
         this.loading = false;
       },

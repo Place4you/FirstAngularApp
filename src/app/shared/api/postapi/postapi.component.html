@@ -24,14 +24,19 @@
           <h2 class="p-3 bg-dark text-white font-weight-bold">Department Lists</h2>
   
           <!-- Loading Spinner -->
-          <div *ngIf="loading" class="d-flex justify-content-center mt-3">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </div>
+           @if(loading){
+            <div class="d-flex justify-content-center mt-3">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+           }
+          
   
           <!-- Data Table -->
-          <table class="table table-striped" *ngIf="!loading">
+        @if(!loading){
+
+          <table class="table table-striped" >
             <thead>
               <tr>
                 <th scope="col">Sr Number</th>
@@ -41,17 +46,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let dept of dept; let i = index">
-                <th scope="row">{{ i + 1 }}</th>
-                <td>{{ dept.departmentName }}</td>
-                <td>{{ dept.departmentLogo }}</td>
-                <td>{{ dept.departmentId }}</td>
-              </tr>
+                @for(dep of dept;track $index){
+                    <tr>
+                        <th scope="row">{{ $index + 1 }}</th>
+                        <td>{{ dep.departmentName }}</td>
+                        <td>{{ dep.departmentLogo }}</td>
+                        <td>{{ dep.departmentId }}</td>
+                      </tr>
+                }
+             
               <tr *ngIf="dept.length === 0">
                 <td colspan="4" class="text-center">No Data Found</td>
               </tr>
             </tbody>
           </table>
+        }
         </div>
   
         <hr>
@@ -85,3 +94,4 @@
     </div>
   </div>
   
+
