@@ -1,39 +1,84 @@
 <div class="container mt-5">
-    <div class="alert alert-info" role="alert">
-      Note: This API only works with port 4209, so the app should be running on
-      that port.
+    <!-- Header -->
+    <h2 class="text-center mt-5" style="font-style: italic;">
+      Information about <span class="text-warning fw-bold">POST</span> API
+    </h2>
+  
+    <!-- Alert about API Port -->
+    <div class="alert alert-info fw-medium fs-8" role="alert">
+      Note: This API only works with port 4209, so the app should be running on that port.
     </div>
+  
+    <!-- Add New Department Section -->
     <div class="row">
       <div class="col-md-12">
         <h3 class="mb-3">Add New Department</h3>
         <p>
           You are using the API endpoint
           <code>https://projectapi.gerasim.in/api/Complaint/AddNewDepartment</code>
-          for testing POST API. The API accepts the following format, so make sure
-          data is in this format:
+          for testing POST API. The API accepts the following format, so make sure data is in this format:
         </p>
-        <pre
-          style="
-            background-color: #f8f9fa;
-            padding: 15px;
-            border: 1px solid #dee2e6;
-            border-radius: 0.25rem;
-          "
-        >
-  {
-    "departmentId": 5,
-    "departmentName": "bonga",
-    "departmentLogo": "check"
-  }
-        </pre>
-        <button (click)="addDepartment()" class="btn btn-primary mb-3">
-          Add Department
-        </button>
-        <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
-        {{ errorMessage }}
+  
+        <!-- Department Lists Table -->
+        <div class="container mt-3">
+          <h2 class="p-3 bg-dark text-white font-weight-bold">Department Lists</h2>
+  
+          <!-- Loading Spinner -->
+          <div *ngIf="loading" class="d-flex justify-content-center mt-3">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+  
+          <!-- Data Table -->
+          <table class="table table-striped" *ngIf="!loading">
+            <thead>
+              <tr>
+                <th scope="col">Sr Number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Logo</th>
+                <th scope="col">Department</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dept of dept; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ dept.departmentName }}</td>
+                <td>{{ dept.departmentLogo }}</td>
+                <td>{{ dept.departmentId }}</td>
+              </tr>
+              <tr *ngIf="dept.length === 0">
+                <td colspan="4" class="text-center">No Data Found</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        @if(successMessage){}
-        <div  class="alert alert-success" role="alert">
+  
+        <hr>
+  
+        <!-- Test POST API Form -->
+        <h2 class="text-center mt-5" style="font-style: italic;">
+          TEST <span class="text-warning fw-bold">POST</span> API HERE
+        </h2>
+  
+        <form (ngSubmit)="addDepartment()" class="mt-3">
+          <div class="mb-3">
+            <label for="departmentName" class="form-label">Department Name</label>
+            <input type="text" id="departmentName" class="form-control" [(ngModel)]="departmentName" name="departmentName" required>
+          </div>
+          <div class="mb-3">
+            <label for="departmentLogo" class="form-label">Department Logo</label>
+            <input type="text" id="departmentLogo" class="form-control" [(ngModel)]="departmentLogo" name="departmentLogo" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Department</button>
+        </form>
+  
+        <!-- Error and Success Messages -->
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+          {{ errorMessage }}
+        </div>
+  
+        <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
           {{ successMessage }}
         </div>
       </div>

@@ -12,7 +12,7 @@ import { PostapiComponent } from './postapi/postapi.component';
 })
 export class ApiComponent {
   get: boolean=false;
-  post: boolean=false;
+  post: boolean=true;
     
   callGetApi(){
     debugger;
