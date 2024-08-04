@@ -10,10 +10,15 @@ export class DepartmentSrvService {
   
 
    }
+   apiurl: string = "https://projectapi.gerasim.in/api/Complaint/";
 
-  getallapi(dep:any){
-
-    return this.http.get(this.dep);
+  getallapi(getdept:any){
     debugger;
+    return this.http.get(`${this.apiurl}` +getdept);
+  }
+
+  postallapi(update: string, data:any){
+    debugger;
+    return this.http.post(`${this.apiurl + update}`,data);
   }
 }

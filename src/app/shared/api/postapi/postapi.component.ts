@@ -13,13 +13,13 @@ import { DepartmentSrvService } from '../../services/department-srv.service';
 })
 export class PostapiComponent implements OnInit {
 
-  apiurl: string = "https://projectapi.gerasim.in/api/Complaint/AddNewDepartment";
-  getDepartmentsUrl: string = "https://projectapi.gerasim.in/api/Complaint/GetParentDepartment";
-  updatedept: string = "https://projectapi.gerasim.in/api/Complaint/UpdateDepartment";
   errorMessage: string | null = null;
   successMessage: string | null = null;
   loading: boolean = false;
   update: boolean = false;
+  updatedept: string = "UpdateDepartment";
+  getdept: string = "GetParentDepartment";
+
 
   dept: any[]=[];
   departmentId: number= 0;
@@ -43,9 +43,9 @@ export class PostapiComponent implements OnInit {
         departmentName: this.departmentName,
         departmentLogo: this.departmentLogo
       };
-      const url = this.update? this.updatedept: this.apiurl;
+      const url = this.update? this.updatedept: this.getdept;
 
-    this.http.post(url, data).subscribe(
+    this.depsrv.postallapi(this.updatedept,data).subscribe(
       (res: any) => {
         this.successMessage= this.update?"Department Updated successfully.":"Department added successfully.";
         this.getDepartment(); // Refresh the department list
@@ -72,8 +72,8 @@ export class PostapiComponent implements OnInit {
   getDepartment() {
     this.loading = true;
 
-    this.depsrv.getallapi(this.getDepartmentsUrl).subscribe(
-      (res) => {
+    this.depsrv.getallapi(this.getdept).subscribe(
+      (res:any) => {
         this.dept = res.data;
         this.errorMessage = null;
         this.loading = false;
