@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { DepartmentSrvService } from '../../services/department-srv.service';
 
 @Component({
   selector: 'app-postapi',
@@ -27,7 +28,10 @@ export class PostapiComponent implements OnInit {
   // Form properties
 
 
-  constructor(private http: HttpClient) {}
+// service for department
+  constructor(private depsrv: DepartmentSrvService){}
+
+  http = inject(HttpClient);
 
   ngOnInit() {
     this.getDepartment();
@@ -68,7 +72,7 @@ export class PostapiComponent implements OnInit {
   getDepartment() {
     this.loading = true;
 
-    this.http.get<{ data: any[] }>(this.getDepartmentsUrl).subscribe(
+    this.depsrv.getallapi(this.getDepartmentsUrl).subscribe(
       (res) => {
         this.dept = res.data;
         this.errorMessage = null;
