@@ -13,7 +13,6 @@ export class DepartmentSrvService {
    apiurl: string = "https://projectapi.gerasim.in/api/Complaint/";
 
   getallapi(getdept:any){
-    debugger;
     return this.http.get(`${this.apiurl}` +getdept);
   }
 

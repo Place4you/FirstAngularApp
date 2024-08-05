@@ -21,7 +21,6 @@ export class ReactiveComponent {
   formValues: any;
 
   saveForm() {
-    debugger;
     if (this.studentForm.valid) {
       this.formValues = this.studentForm.value;
     }
