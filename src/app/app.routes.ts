@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterLinkActive, Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { HeroImageComponent } from './hero-image/hero-image.component';
 import { PostTitleComponent } from './post-title/post-title.component';
@@ -14,8 +14,14 @@ import { LifeCycleEventsComponent } from './life-cycle-events/life-cycle-events.
 
 export const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'add-header', 
+        pathMatch: 'full'
+    },
+    {
         path:'add-header',
-        component: HeaderComponent
+        component: HeaderComponent,
+        
     },
     {
         path:'add-hero',

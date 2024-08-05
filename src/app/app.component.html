@@ -1,21 +1,39 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active font-weight-bold text-uppercase mx-3" href="#">Home</a>
-        <a class="nav-item nav-link font-weight-bold text-uppercase mx-3" routerLink="add-header">Header</a>
-        <a class="nav-item nav-link font-weight-bold text-uppercase mx-3" routerLink="add-navbar">Navbar</a>
-        <a class="nav-item nav-link font-weight-bold text-uppercase mx-3" routerLink="add-app-life-cycle-events">LifeCycle</a>
-        <a class="nav-item nav-link font-weight-bold text-uppercase mx-3" routerLink="add-hero">Hero Image</a>
-        <a class="nav-item nav-link font-weight-bold text-uppercase mx-3" routerLink="add-form">Form</a>
-        <a class="nav-item nav-link font-weight-bold text-uppercase mx-3" routerLink="add-postTitle">Post-title</a>
-        <a class="nav-item nav-link font-weight-bold text-uppercase mx-3" routerLink="add-pipes">Pipes</a>
-        <a class="nav-item nav-link font-weight-bold text-uppercase mx-3" routerLink="add-apicomp">API</a>
-      </div>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="add-header">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="add-navbar">Navbar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="add-app-life-cycle-events">LifeCycle</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="add-hero">Hero Image</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="add-form">Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="add-postTitle">Post-title</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="add-pipes">Pipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="add-apicomp">API</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <div class="container">
     <router-outlet></router-outlet>
