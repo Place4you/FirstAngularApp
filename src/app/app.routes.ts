@@ -10,6 +10,7 @@ import { FormsComponent } from './forms/forms.component';
 import { GetapiComponent } from './shared/api/getapi/getapi.component';
 import { PostapiComponent } from './shared/api/postapi/postapi.component';
 import { ApiComponent } from './shared/api/api.component';
+import { LifeCycleEventsComponent } from './life-cycle-events/life-cycle-events.component';
 
 export const routes: Routes = [
     {
@@ -55,5 +56,10 @@ export const routes: Routes = [
     {
         path:'add-apicomp',
         component:ApiComponent
+    },
+    {
+        path:'add-app-life-cycle-events',
+        component:LifeCycleEventsComponent
     }
+    
 ];

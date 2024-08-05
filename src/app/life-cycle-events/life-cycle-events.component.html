@@ -1,1 +1,74 @@
-<p>life-cycle-events works!</p>
+<div class="container mt-5">
+    <h3 class="text-center">Angular Lifecycle Events</h3>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ngOnChanges</h5>
+            <p class="card-text">Called before ngOnInit() and whenever one or more data-bound input properties change.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ngOnInit</h5>
+            <p class="card-text">Called once, after the first ngOnChanges(). Initializes the component.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ngDoCheck</h5>
+            <p class="card-text">Called during every change detection run, allows custom change detection logic.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ngAfterContentInit</h5>
+            <p class="card-text">Called once after the component's content has been initialized.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ngAfterContentChecked</h5>
+            <p class="card-text">Called after the component's content has been checked by the change detection mechanism.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ngAfterViewInit</h5>
+            <p class="card-text">Called once after the component's views and child views have been initialized.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ngAfterViewChecked</h5>
+            <p class="card-text">Called after the component's views and child views have been checked by the change detection mechanism.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ngOnDestroy</h5>
+            <p class="card-text">Called once before the component is destroyed. Use for cleanup logic.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
