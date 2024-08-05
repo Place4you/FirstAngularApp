@@ -19,6 +19,8 @@ export class PostapiComponent implements OnInit {
   update: boolean = false;
   updatedept: string = "UpdateDepartment";
   getdept: string = "GetParentDepartment";
+  adddept: string = "AddNewDepartment";
+  url:string = '';
 
 
   dept: any[]=[];
@@ -43,10 +45,11 @@ export class PostapiComponent implements OnInit {
         departmentName: this.departmentName,
         departmentLogo: this.departmentLogo
       };
-      const url = this.update? this.updatedept: this.getdept;
+      this.url = this.update? this.updatedept: this.adddept;
 
-    this.depsrv.postallapi(this.updatedept,data).subscribe(
+    this.depsrv.postallapi(this.url ,data).subscribe(
       (res: any) => {
+        this.update = false;
         this.successMessage= this.update?"Department Updated successfully.":"Department added successfully.";
         this.getDepartment(); // Refresh the department list
         this.clearForm();
