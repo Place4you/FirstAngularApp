@@ -50,16 +50,18 @@ export class SignupComponent {
 
   autoLogin() {
     const loginUser = {
-      username: this.newUserobj.email,
-      password: this.newUserobj.password
+      EmailId: this.newUserobj.emailId,
+      Password: this.newUserobj.password
     };
     this.userSrv.loginUser('/login', loginUser).subscribe(
       response => {
-        localStorage.setItem('loggedUser', loginUser.username);
+        debugger;
+        localStorage.setItem('loggedUser', loginUser.EmailId);
         alert('Login successful!');
         this.router.navigateByUrl('/add-header');
       },
       error => {
+        debugger;
         this.errorMessage = 'Login after signup failed. Please try logging in manually.';
       }
     );
