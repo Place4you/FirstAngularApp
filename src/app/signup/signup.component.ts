@@ -37,6 +37,7 @@ export class SignupComponent {
           // Handle successful signup
           alert('Signup successful!');
           localStorage.setItem('signupUser', JSON.stringify(this.newUserobj));
+
           this.autoLogin();        },
         error => {
           // Handle signup error
@@ -57,6 +58,8 @@ export class SignupComponent {
       response => {
         debugger;
         localStorage.setItem('loggedUser', loginUser.EmailId);
+        localStorage.setItem('fullName', loginUser.fullName);
+
         alert('Login successful!');
         this.router.navigateByUrl('/add-header');
       },

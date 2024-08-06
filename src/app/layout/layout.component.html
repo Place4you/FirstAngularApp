@@ -6,31 +6,36 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item mx-3">
-          <a class="nav-link" routerLink="/add-header" routerLinkActive="active" aria-current="page">Home</a>
+          <a class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="add-header">Home</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" routerLink="/add-navbar" routerLinkActive="active">Navbar</a>
+          <a class="nav-link" routerLink="add-navbar">Navbar</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" routerLink="/add-app-life-cycle-events" routerLinkActive="active">LifeCycle</a>
+          <a class="nav-link" routerLink="add-app-life-cycle-events">LifeCycle</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" routerLink="/add-hero" routerLinkActive="active">Hero Image</a>
+          <a class="nav-link" routerLink="add-hero">Hero Image</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" routerLink="/add-form" routerLinkActive="active">Form</a>
+          <a class="nav-link" routerLink="add-form">Form</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" routerLink="/add-postTitle" routerLinkActive="active">Post-title</a>
+          <a class="nav-link" routerLink="add-postTitle">Post-title</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" routerLink="/add-pipes" routerLinkActive="active">Pipes</a>
+          <a class="nav-link" routerLink="add-pipes">Pipes</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" routerLink="/add-apicomp" routerLinkActive="active">API</a>
+          <a class="nav-link" routerLink="add-apicomp">API</a>
         </li>
       </ul>
-      <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+      <div class="d-flex align-items-center">
+        @if(userName){
+          <span class="navbar-text text-white me-3"  >Welcome, {{ userName }}</span>
+        }
+        <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+      </div>
     </div>
   </div>
 </nav>

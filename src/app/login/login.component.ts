@@ -30,7 +30,7 @@ export class LoginComponent {
       this.userSrv.loginUser(this.loginurl, this.userObj).subscribe(
         response => {
           // Handle successful login
-          localStorage.setItem('loggedUser', this.userObj.username);
+          localStorage.setItem('loggedUser', this.userObj.EmailId);
           alert('Login successful!');
           this.router.navigateByUrl('/add-header');
         },

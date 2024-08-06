@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,13 +8,23 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
+export class LayoutComponent{
 
-  constructor(router: Router){}
   router = inject(Router)
   login:boolean= false;
+  userName: string | null = null;
+  loggedUser:any;
+  constructor(router: Router){
+    const user = localStorage.getItem('loggedUser');
+    this.loggedUser = user ? JSON.parse(user) : null;
+  }
+
+
+ 
+
+
   onLogout(){
-    localStorage.removeItem('loggedUser');
+    localStorage.removeItem('signupuser');
     this.router.navigateByUrl('login');
   }
 }
