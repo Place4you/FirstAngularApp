@@ -18,9 +18,7 @@ export class LayoutComponent{
   constructor(router: Router){
 
     const loggedUser = JSON.parse(localStorage.getItem('loggedUser') || '{}'); // Retrieve and parse the object
-    debugger;
     this.userName = loggedUser.data.emailId || ''; // Access the fullName property and store it in a variable
-    debugger;
     console.log(this.userName); // Output the fullName to the console
   }
 

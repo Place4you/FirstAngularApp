@@ -47,16 +47,13 @@ export class SignupComponent {
       emailId: this.newUserobj.emailId,
       Password: this.newUserobj.password
     };
-    debugger;
     this.userSrv.loginUser('/login', loginUser).subscribe(
       response => {
-        debugger;
         localStorage.setItem('loggedUser', JSON.stringify(response)); // Assuming response contains user details
         alert('Login successful!');
         this.router.navigateByUrl('/layout/add-header');
       },
       error => {
-        debugger;
         this.errorMessage = 'Login after signup failed. Please try logging in manually.';
       }
     );

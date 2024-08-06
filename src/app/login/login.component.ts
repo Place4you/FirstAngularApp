@@ -30,7 +30,6 @@ export class LoginComponent {
         emailId: this.userObj.emailId,
         Password: this.userObj.Password
       };
-      debugger;
       this.userSrv.loginUser('/login', loginUser).subscribe(
         response => {
           localStorage.setItem('loggedUser', JSON.stringify(response)); // Assuming response contains user details

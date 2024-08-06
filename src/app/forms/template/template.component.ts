@@ -21,7 +21,6 @@ export class TemplateComponent {
 
   formValue: any;
   onSubmit(){
-    debugger;
     this.formValue = this.client;
     console.log(this.formValue);
   }

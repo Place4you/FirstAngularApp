@@ -11,13 +11,11 @@ export class UserService {
 
 
   createUser(url:string,data:any){
-    debugger;
     return this.http.post(`${this.apiurl}` +url, data);
 
   }
 
   loginUser(url:string,data:{emailId:any, Password:any}){
-    debugger;
     return this.http.post(`${this.apiurl}` +url, data);
   }
 }
