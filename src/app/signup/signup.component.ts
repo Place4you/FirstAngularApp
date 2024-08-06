@@ -30,16 +30,14 @@ export class SignupComponent {
 
 
   onSignup() {
-    debugger;
 
     if (this.newUserobj.emailId && this.newUserobj.fullName && this.newUserobj.password) {
       this.userSrv.createUser(this.posturl, this.newUserobj).subscribe(
         response => {
-          debugger;
           // Handle successful signup
           alert('Signup successful!');
-          this.router.navigateByUrl('/login');
-        },
+          localStorage.setItem('signupUser', JSON.stringify(this.newUserobj));
+          this.autoLogin();        },
         error => {
           // Handle signup error
           this.errorMessage = 'Signup failed. Please try again.';
@@ -50,4 +48,20 @@ export class SignupComponent {
     }
   }
 
+  autoLogin() {
+    const loginUser = {
+      username: this.newUserobj.email,
+      password: this.newUserobj.password
+    };
+    this.userSrv.loginUser('/login', loginUser).subscribe(
+      response => {
+        localStorage.setItem('loggedUser', loginUser.username);
+        alert('Login successful!');
+        this.router.navigateByUrl('/add-header');
+      },
+      error => {
+        this.errorMessage = 'Login after signup failed. Please try logging in manually.';
+      }
+    );
+  }
 }
