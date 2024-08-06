@@ -11,26 +11,12 @@ export class UserService {
 
 
   createUser(url:string,data:any){
-    return this.http.post(`${this.apiurl}` +url, data).subscribe(
-      (res: any) => {
-        alert("Singup successfully");
-      },
-      (error) => {
-        alert('Failed to Signup. Please try again later.');
-      }
-
-    );
+    debugger;
+    return this.http.post(`${this.apiurl}` +url, data);
 
   }
 
   loginUser(url:string,data:any){
-    return this.http.post(`${this.apiurl}` +url, data).subscribe(
-      (res: any) => {
-        localStorage.setItem('newuser', JSON.stringify(res.data));
-      },
-      (error) => {
-      }
-
-    );
+    return this.http.post(`${this.apiurl}` +url, data);
   }
 }

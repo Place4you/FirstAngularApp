@@ -16,19 +16,38 @@ export class SignupComponent {
   router= inject(Router);
   http= inject(HttpClient);
   userSrv = inject(UserService);
-
-  newUserobj:any={
-    email:'',
-    fullname:'',
-    password:''
-  }
+  errorMessage: string | null = null;
   posturl = '/CreateNewUser';
 
 
+  newUserobj:any={ 
+      "userId": 0,
+      "emailId": "",
+      "fullName": "",
+      "password": ""
+  }
 
-  onSignup(){
-    this.userSrv.createUser(this.posturl, this.newUserobj)
-    
+
+
+  onSignup() {
+    debugger;
+
+    if (this.newUserobj.emailId && this.newUserobj.fullName && this.newUserobj.password) {
+      this.userSrv.createUser(this.posturl, this.newUserobj).subscribe(
+        response => {
+          debugger;
+          // Handle successful signup
+          alert('Signup successful!');
+          this.router.navigateByUrl('/login');
+        },
+        error => {
+          // Handle signup error
+          this.errorMessage = 'Signup failed. Please try again.';
+        }
+      );
+    } else {
+      this.errorMessage = 'Please fill all the fields.';
+    }
   }
 
 }
