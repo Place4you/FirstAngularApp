@@ -11,61 +11,74 @@ import { GetapiComponent } from './shared/api/getapi/getapi.component';
 import { PostapiComponent } from './shared/api/postapi/postapi.component';
 import { ApiComponent } from './shared/api/api.component';
 import { LifeCycleEventsComponent } from './life-cycle-events/life-cycle-events.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'add-header', 
+        redirectTo: 'login', 
         pathMatch: 'full'
     },
     {
-        path:'add-header',
-        component: HeaderComponent,
-        
+        path:'login',
+        component:LoginComponent
     },
     {
-        path:'add-hero',
-        component:HeroImageComponent
-    },
-    {
-        path:'add-postTitle',
-        component:PostTitleComponent
-    },
-    {
-        path:'add-navbar',
-        component:AppNavbar
-    },
-    {
-        path:'add-pipes',
-        component:PipesComponent
-    },
-    {
-        path:'add-form',
-        component:FormsComponent
-    },
-    {
-        path:'add-template',
-        component:TemplateComponent
-    },
-    {
-        path:'add-reactive',
-        component:ReactiveComponent
-    },
-    {
-        path:'add-getapi',
-        component:GetapiComponent
-    },
-    {
-        path:'add-postapi',
-        component:PostapiComponent
-    },
-    {
-        path:'add-apicomp',
-        component:ApiComponent
-    },
-    {
-        path:'add-app-life-cycle-events',
-        component:LifeCycleEventsComponent
+        path:'',
+        component:LayoutComponent,
+        children:[
+            {
+                path:'add-header',
+                component: HeaderComponent,
+                
+            },
+            {
+                path:'add-hero',
+                component:HeroImageComponent
+            },
+            {
+                path:'add-postTitle',
+                component:PostTitleComponent
+            },
+            {
+                path:'add-navbar',
+                component:AppNavbar
+            },
+            {
+                path:'add-pipes',
+                component:PipesComponent
+            },
+            {
+                path:'add-form',
+                component:FormsComponent
+            },
+            {
+                path:'add-template',
+                component:TemplateComponent
+            },
+            {
+                path:'add-reactive',
+                component:ReactiveComponent
+            },
+            {
+                path:'add-getapi',
+                component:GetapiComponent
+            },
+            {
+                path:'add-postapi',
+                component:PostapiComponent
+            },
+            {
+                path:'add-apicomp',
+                component:ApiComponent
+            },
+            {
+                path:'add-app-life-cycle-events',
+                component:LifeCycleEventsComponent
+            }
+        ]
     }
+    
     
 ];
