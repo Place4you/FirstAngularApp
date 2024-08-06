@@ -1,10 +1,11 @@
+import { NgIf } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, NgIf],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
@@ -12,11 +13,15 @@ export class LayoutComponent{
 
   router = inject(Router)
   login:boolean= false;
-  userName: string | null = null;
-  loggedUser:any;
+  userName: string;
+  
   constructor(router: Router){
-    const user = localStorage.getItem('loggedUser');
-    this.loggedUser = user ? JSON.parse(user) : null;
+
+    const loggedUser = JSON.parse(localStorage.getItem('loggedUser') || '{}'); // Retrieve and parse the object
+    debugger;
+    this.userName = loggedUser.data.emailId || ''; // Access the fullName property and store it in a variable
+    debugger;
+    console.log(this.userName); // Output the fullName to the console
   }
 
 

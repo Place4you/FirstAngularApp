@@ -1,46 +1,39 @@
-import { UserService } from './../user.service';
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from './../user.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [FormsModule],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
- 
-  router= inject(Router);
-  http= inject(HttpClient);
+  router = inject(Router);
+  http = inject(HttpClient);
   userSrv = inject(UserService);
   errorMessage: string | null = null;
   posturl = '/CreateNewUser';
 
-
-  newUserobj:any={ 
-      "userId": 0,
-      "emailId": "",
-      "fullName": "",
-      "password": ""
-  }
-
-
+  newUserobj: any = {
+    userId: 0,
+    emailId: '',
+    fullName: '',
+    password: ''
+  };
 
   onSignup() {
-
     if (this.newUserobj.emailId && this.newUserobj.fullName && this.newUserobj.password) {
       this.userSrv.createUser(this.posturl, this.newUserobj).subscribe(
         response => {
-          // Handle successful signup
           alert('Signup successful!');
           localStorage.setItem('signupUser', JSON.stringify(this.newUserobj));
-
-          this.autoLogin();        },
+          this.autoLogin();
+        },
         error => {
-          // Handle signup error
           this.errorMessage = 'Signup failed. Please try again.';
         }
       );
@@ -51,17 +44,16 @@ export class SignupComponent {
 
   autoLogin() {
     const loginUser = {
-      EmailId: this.newUserobj.emailId,
+      emailId: this.newUserobj.emailId,
       Password: this.newUserobj.password
     };
+    debugger;
     this.userSrv.loginUser('/login', loginUser).subscribe(
       response => {
         debugger;
-        localStorage.setItem('loggedUser', loginUser.EmailId);
-        localStorage.setItem('fullName', loginUser.fullName);
-
+        localStorage.setItem('loggedUser', JSON.stringify(response)); // Assuming response contains user details
         alert('Login successful!');
-        this.router.navigateByUrl('/add-header');
+        this.router.navigateByUrl('/layout/add-header');
       },
       error => {
         debugger;

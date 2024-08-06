@@ -17,74 +17,75 @@ import { SignupComponent } from './signup/signup.component';
 
 export const routes: Routes = [
     {
-        path: '',
-        redirectTo: 'login', 
-        pathMatch: 'full'
+      path: '',
+      redirectTo: 'login',
+      pathMatch: 'full'
     },
     {
-        path:'login',
-        component:LoginComponent
+      path: 'login',
+      component: LoginComponent
     },
     {
-        path:'signup',
-        component: SignupComponent,
-        
+      path: 'signup',
+      component: SignupComponent
     },
     {
-        path:'',
-        component:LayoutComponent,
-        children:[
-            {
-                path:'add-header',
-                component: HeaderComponent,
-                
-            },
-            {
-                path:'add-hero',
-                component:HeroImageComponent
-            },
-            {
-                path:'add-postTitle',
-                component:PostTitleComponent
-            },
-            {
-                path:'add-navbar',
-                component:AppNavbar
-            },
-            {
-                path:'add-pipes',
-                component:PipesComponent
-            },
-            {
-                path:'add-form',
-                component:FormsComponent
-            },
-            {
-                path:'add-template',
-                component:TemplateComponent
-            },
-            {
-                path:'add-reactive',
-                component:ReactiveComponent
-            },
-            {
-                path:'add-getapi',
-                component:GetapiComponent
-            },
-            {
-                path:'add-postapi',
-                component:PostapiComponent
-            },
-            {
-                path:'add-apicomp',
-                component:ApiComponent
-            },
-            {
-                path:'add-app-life-cycle-events',
-                component:LifeCycleEventsComponent
-            }
-        ]
+      path: 'layout',
+      component: LayoutComponent,
+      children: [
+        {
+          path: 'add-header',
+          component: HeaderComponent,
+        },
+        {
+          path: 'add-hero',
+          component: HeroImageComponent
+        },
+        {
+          path: 'add-postTitle',
+          component: PostTitleComponent
+        },
+        {
+          path: 'add-navbar',
+          component: AppNavbar
+        },
+        {
+          path: 'add-pipes',
+          component: PipesComponent
+        },
+        {
+          path: 'add-form',
+          component: FormsComponent
+        },
+        {
+          path: 'add-template',
+          component: TemplateComponent
+        },
+        {
+          path: 'add-reactive',
+          component: ReactiveComponent
+        },
+        {
+          path: 'add-getapi',
+          component: GetapiComponent
+        },
+        {
+          path: 'add-postapi',
+          component: PostapiComponent
+        },
+        {
+          path: 'add-apicomp',
+          component: ApiComponent
+        },
+        {
+          path: 'add-app-life-cycle-events',
+          component: LifeCycleEventsComponent
+        }
+      ]
+    },
+    {
+      path: '**',
+      redirectTo: 'login'
     }
-    
-    
-];
+  ];
+  

@@ -16,7 +16,8 @@ export class UserService {
 
   }
 
-  loginUser(url:string,data:any){
+  loginUser(url:string,data:{emailId:any, Password:any}){
+    debugger;
     return this.http.post(`${this.apiurl}` +url, data);
   }
 }

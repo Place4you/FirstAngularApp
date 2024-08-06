@@ -19,32 +19,30 @@ export class LoginComponent {
   login:boolean=true;
 
   userObj: any = {
-    username: '',
-    password: ''
+    emailId: '',
+    Password: ''
   };
 
   errorMessage: string | null = null;
 
   onApiLogin() {
-    if (this.userObj.username && this.userObj.password) {
-      this.userSrv.loginUser(this.loginurl, this.userObj).subscribe(
+      const loginUser = {
+        emailId: this.userObj.emailId,
+        Password: this.userObj.Password
+      };
+      debugger;
+      this.userSrv.loginUser('/login', loginUser).subscribe(
         response => {
-          // Handle successful login
-          localStorage.setItem('loggedUser', this.userObj.EmailId);
+          localStorage.setItem('loggedUser', JSON.stringify(response)); // Assuming response contains user details
           alert('Login successful!');
-          this.router.navigateByUrl('/add-header');
+          this.router.navigateByUrl('/layout/add-header');
         },
         error => {
-          // Handle login error
-          this.errorMessage = 'Login failed. Invalid details.';
-        }
-      );
-    } else {
-      this.errorMessage = 'Please fill all the fields.';
-    }
+          this.errorMessage = 'Login after signup failed. Please try logging in manually.';
+
+        })
+
+      }
   }
 
-  singuppage() {
-    this.router.navigateByUrl('/signup');
-  }
-}
+
