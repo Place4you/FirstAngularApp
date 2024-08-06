@@ -1,0 +1,4 @@
+/* Styles for active nav link */
+.nav-link.active {
+    font-weight: bold; /* Makes text bold */
+  }

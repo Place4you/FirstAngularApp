@@ -1,41 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav custom-navbar">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="add-header">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="add-navbar">Navbar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="add-app-life-cycle-events">LifeCycle</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="add-hero">Hero Image</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="add-form">Form</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="add-postTitle">Post-title</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="add-pipes">Pipes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="add-apicomp">API</a>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item mx-3">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="/add-header">Home</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-navbar">Navbar</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-app-life-cycle-events">LifeCycle</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-hero">Hero Image</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-form">Form</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-postTitle">Post-title</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-pipes">Pipes</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-apicomp">API</a>
+        </li>
+      </ul>
+      <button class="btn btn-danger" (click)="onLogout()">Logout</button>
     </div>
-  </nav>
-  
-  
-  
-  <div class="container">
-    <router-outlet></router-outlet>
   </div>
+</nav>
+
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>

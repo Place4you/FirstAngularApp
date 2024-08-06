@@ -20,6 +20,7 @@ export class LoginComponent {
     
     if(this.userObj.username =='admin' && this.userObj.password == '1234')
     {
+      localStorage.setItem('loggedUser', this.userObj.username);
       alert('Login Successful!');
       this.router.navigateByUrl('add-header')
     }
