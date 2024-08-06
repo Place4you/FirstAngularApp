@@ -13,6 +13,7 @@ import { ApiComponent } from './shared/api/api.component';
 import { LifeCycleEventsComponent } from './life-cycle-events/life-cycle-events.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { SignupComponent } from './signup/signup.component';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,11 @@ export const routes: Routes = [
     {
         path:'login',
         component:LoginComponent
+    },
+    {
+        path:'signup',
+        component: SignupComponent,
+        
     },
     {
         path:'',

@@ -1,3 +1,4 @@
+import { UserService } from './../user.service';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,13 +12,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  userSrv = inject(UserService);
   userObj: any = {
     username: '',
     password: ''
   }
   router = inject(Router)
-  onLogin(){
-    
+  loginurl = '/login';
+
+ 
+  onHardLogin(){
     if(this.userObj.username =='admin' && this.userObj.password == '1234')
     {
       localStorage.setItem('loggedUser', this.userObj.username);
@@ -27,6 +31,13 @@ export class LoginComponent {
     else{
       alert('Invalid Details.')
     }
+  }
+
+  singuppage(){
+    this.router.navigateByUrl('signup');
+  }
+  onApiLogin(){
+    this.userSrv.loginUser(this.loginurl, this.userObj);
   }
 
 
