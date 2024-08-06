@@ -2,11 +2,12 @@ import { UserService } from './../user.service';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SignupComponent } from '../signup/signup.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, SignupComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -19,6 +20,7 @@ export class LoginComponent {
   }
   router = inject(Router)
   loginurl = '/login';
+  login:boolean= true;
 
  
   onHardLogin(){
@@ -34,9 +36,10 @@ export class LoginComponent {
   }
 
   singuppage(){
-    this.router.navigateByUrl('signup');
+    this.login = false;
   }
   onApiLogin(){
+    debugger;
     this.userSrv.loginUser(this.loginurl, this.userObj);
   }
 
