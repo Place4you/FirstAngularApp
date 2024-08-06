@@ -1,74 +1,149 @@
 <div class="container mt-5">
-    <h3 class="text-center">Angular Lifecycle Events</h3>
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">ngOnChanges</h5>
-            <p class="card-text">Called before ngOnInit() and whenever one or more data-bound input properties change.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">ngOnInit</h5>
-            <p class="card-text">Called once, after the first ngOnChanges(). Initializes the component.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">ngDoCheck</h5>
-            <p class="card-text">Called during every change detection run, allows custom change detection logic.</p>
-          </div>
+  <h3 class="text-center">Angular Lifecycle Events</h3>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ngOnChanges</h5>
+          <p class="card-text">Called before <code>ngOnInit()</code> and whenever one or more data-bound input properties change.</p>
+          <p class="card-text"><strong>Scenario:</strong> Update a chart when input data changes.</p>
+          <p class="card-text"><strong>Example:</strong></p>
+          <pre><code>
+&#x3C;script>
+ngOnChanges(changes: SimpleChanges): void &#x7B;
+  if (changes['data']) &#x7B;
+    this.updateChart(changes['data'].currentValue);
+  &#x7D;
+&#x7D;
+&#x3C;/script>
+          </code></pre>
         </div>
       </div>
     </div>
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">ngAfterContentInit</h5>
-            <p class="card-text">Called once after the component's content has been initialized.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">ngAfterContentChecked</h5>
-            <p class="card-text">Called after the component's content has been checked by the change detection mechanism.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">ngAfterViewInit</h5>
-            <p class="card-text">Called once after the component's views and child views have been initialized.</p>
-          </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ngOnInit</h5>
+          <p class="card-text">Called once, after the first <code>ngOnChanges()</code>. Initializes the component.</p>
+          <p class="card-text"><strong>Scenario:</strong> Fetch initial data from a server.</p>
+          <p class="card-text"><strong>Example:</strong></p>
+          <pre><code>
+&#x3C;script>
+ngOnInit(): void &#x7B;
+  this.fetchData();
+&#x7D;
+&#x3C;/script>
+          </code></pre>
         </div>
       </div>
     </div>
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">ngAfterViewChecked</h5>
-            <p class="card-text">Called after the component's views and child views have been checked by the change detection mechanism.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">ngOnDestroy</h5>
-            <p class="card-text">Called once before the component is destroyed. Use for cleanup logic.</p>
-          </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ngDoCheck</h5>
+          <p class="card-text">Called during every change detection run, allows custom change detection logic.</p>
+          <p class="card-text"><strong>Scenario:</strong> Detect changes that Angular doesn't catch.</p>
+          <p class="card-text"><strong>Example:</strong></p>
+          <pre><code>
+&#x3C;script>
+ngDoCheck(): void &#x7B;
+  if (this.hasChanges()) &#x7B;
+    this.updateView();
+  &#x7D;
+&#x7D;
+&#x3C;/script>
+          </code></pre>
         </div>
       </div>
     </div>
   </div>
-  
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ngAfterContentInit</h5>
+          <p class="card-text">Called once after the component's content has been initialized.</p>
+          <p class="card-text"><strong>Scenario:</strong> Initialize content projection.</p>
+          <p class="card-text"><strong>Example:</strong></p>
+          <pre><code>
+&#x3C;script>
+ngAfterContentInit(): void &#x7B;
+  this.initProjectedContent();
+&#x7D;
+&#x3C;/script>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ngAfterContentChecked</h5>
+          <p class="card-text">Called after the component's content has been checked by the change detection mechanism.</p>
+          <p class="card-text"><strong>Scenario:</strong> React to projected content changes.</p>
+          <p class="card-text"><strong>Example:</strong></p>
+          <pre><code>
+&#x3C;script>
+ngAfterContentChecked(): void &#x7B;
+  this.checkProjectedContent();
+&#x7D;
+&#x3C;/script>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ngAfterViewInit</h5>
+          <p class="card-text">Called once after the component's views and child views have been initialized.</p>
+          <p class="card-text"><strong>Scenario:</strong> Access child components or view children.</p>
+          <p class="card-text"><strong>Example:</strong></p>
+          <pre><code>
+&#x3C;script>
+ngAfterViewInit(): void &#x7B;
+  this.initChildComponents();
+&#x7D;
+&#x3C;/script>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ngAfterViewChecked</h5>
+          <p class="card-text">Called after the component's views and child views have been checked by the change detection mechanism.</p>
+          <p class="card-text"><strong>Scenario:</strong> Perform actions after view updates.</p>
+          <p class="card-text"><strong>Example:</strong></p>
+          <pre><code>
+&#x3C;script>
+ngAfterViewChecked(): void &#x7B;
+  this.verifyViewChanges();
+&#x7D;
+&#x3C;/script>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ngOnDestroy</h5>
+          <p class="card-text">Called once before the component is destroyed. Use for cleanup logic.</p>
+          <p class="card-text"><strong>Scenario:</strong> Unsubscribe from observables.</p>
+          <p class="card-text"><strong>Example:</strong></p>
+          <pre><code>
+&#x3C;script>
+ngOnDestroy(): void &#x7B;
+  this.subscription.unsubscribe();
+&#x7D;
+&#x3C;/script>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
