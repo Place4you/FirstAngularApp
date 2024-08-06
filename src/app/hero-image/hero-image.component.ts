@@ -1,6 +1,6 @@
 import { ViewchildComponent } from './../viewchild/viewchild.component';
 import { NgClass, NgStyle, NgSwitch } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, viewChild, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-hero-image',
@@ -15,12 +15,19 @@ export class HeroImageComponent implements AfterViewInit {
   test: boolean= false;
   testr: boolean= true;
   msg:any;
-
+  throgh:any = '';
   @ViewChild(ViewchildComponent) view?: ViewchildComponent;
+  @ViewChild(ViewchildComponent) catcher?: ViewchildComponent;
 
   ngAfterViewInit(){
    this.msg=this.view?.msg;
+   this.throgh = this.catcher?.catch;
    console.log(this.msg);
+
+
+
+
+   
    
 }
 }
