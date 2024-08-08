@@ -8,7 +8,7 @@ export const loginCheckGuard: CanActivateFn = (route, state) => {
 
 
   const loggedCheck = localStorage.getItem('loggedUser');
-  if(loggedCheck! == null){
+  if(loggedCheck){
     return true;
 
   }

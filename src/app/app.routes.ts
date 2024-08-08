@@ -14,6 +14,7 @@ import { LifeCycleEventsComponent } from './life-cycle-events/life-cycle-events.
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { SignupComponent } from './signup/signup.component';
+import { loginCheckGuard } from './core/guards/login-check.guard';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,7 @@ export const routes: Routes = [
     {
       path: 'layout',
       component: LayoutComponent,
+      canActivate: [loginCheckGuard],
       children: [
         {
           path: 'add-header',
