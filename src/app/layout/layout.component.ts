@@ -27,7 +27,7 @@ export class LayoutComponent{
 
 
   onLogout(){
-    localStorage.removeItem('signupuser');
+    localStorage.removeItem('signupUser');
     localStorage.removeItem('loggedUser');
     this.router.navigateByUrl('login');
   }
