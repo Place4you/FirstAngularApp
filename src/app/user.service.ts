@@ -1,3 +1,4 @@
+import { Constant } from './core/constants/Constant';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
@@ -7,15 +8,14 @@ import { inject, Injectable } from '@angular/core';
 export class UserService {
 
   http = inject(HttpClient);
-  apiurl='https://projectapi.gerasim.in/api/UserApp/';
 
 
   createUser(url:string,data:any){
-    return this.http.post(`${this.apiurl}` +url, data);
+    return this.http.post(`${Constant.API_URL}` +url, data);
 
   }
 
   loginUser(url:string,data:{emailId:any, Password:any}){
-    return this.http.post(`${this.apiurl}` +url, data);
+    return this.http.post(`${Constant.API_URL}` +url, data);
   }
 }
