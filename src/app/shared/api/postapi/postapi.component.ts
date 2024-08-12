@@ -1,3 +1,4 @@
+import { Constant } from './../../../core/constants/Constant';
 import { Component, inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -18,9 +19,7 @@ export class PostapiComponent implements OnInit {
   successMessage: string | null = null;
   loading: boolean = false;
   update: boolean = false;
-  updatedept: string = "UpdateDepartment";
-  getdept: string = "GetParentDepartment";
-  adddept: string = "AddNewDepartment";
+
   url:string = '';
 
   deptInfo: IDepartment [] = [];
@@ -46,7 +45,7 @@ export class PostapiComponent implements OnInit {
         departmentName: this.departmentName,
         departmentLogo: this.departmentLogo
       };
-      this.url = this.update? this.updatedept: this.adddept;
+      this.url = this.update? Constant.UPDATE_DEPT  : Constant.GET_DEPT;
 
     this.depsrv.postallapi(this.url ,data).subscribe(
       (res: any) => {
@@ -76,7 +75,7 @@ export class PostapiComponent implements OnInit {
   getDepartment() {
     this.loading = true;
 
-    this.depsrv.getallapi(this.getdept).subscribe(
+    this.depsrv.getallapi(Constant.GET_DEPT).subscribe(
       (res:any) => {
         this.deptInfo = res.data;
         this.errorMessage = null;
