@@ -12,10 +12,12 @@ export class DepartmentSrvService {
    }
 
   getallapi(getdept:any){
-    return this.http.get(`${Constant.COMPLAINT_API}` +getdept);
+
+    return this.http.get(getdept);
   }
 
   postallapi(url: string, data:any){
-    return this.http.post(`${Constant.COMPLAINT_API + url}`,data);
+    debugger;
+    return this.http.post(url,data);
   }
 }
