@@ -17,7 +17,6 @@ export class DepartmentSrvService {
   }
 
   postallapi(url: string, data:any){
-    debugger;
     return this.http.post(url,data);
   }
 }

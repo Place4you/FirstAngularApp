@@ -49,7 +49,6 @@ export class PostapiComponent implements OnInit {
 
     this.depsrv.postallapi(this.url,data).subscribe(
       (res: any) => {
-        debugger;
         this.update = false;
         this.successMessage= this.update?"Department Updated successfully.":"Department added successfully.";
         this.getDepartment(); // Refresh the department list
