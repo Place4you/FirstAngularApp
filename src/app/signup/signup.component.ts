@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './../user.service';
 import { FormsModule } from '@angular/forms';
+import { Constant } from '../core/constants/Constant';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,7 @@ export class SignupComponent {
   http = inject(HttpClient);
   userSrv = inject(UserService);
   errorMessage: string | null = null;
-  posturl = '/CreateNewUser';
+  
 
   newUserobj: any = {
     userId: 0,
@@ -27,7 +28,7 @@ export class SignupComponent {
 
   onSignup() {
     if (this.newUserobj.emailId && this.newUserobj.fullName && this.newUserobj.password) {
-      this.userSrv.createUser(this.posturl, this.newUserobj).subscribe(
+      this.userSrv.createUser(Constant.POST_URL, this.newUserobj).subscribe(
         response => {
           alert('Signup successful!');
           localStorage.setItem('signupUser', JSON.stringify(this.newUserobj));
