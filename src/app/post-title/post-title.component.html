@@ -4,11 +4,15 @@
 
     <h1>Signal Testing</h1>
     <div class="bg-warning inline-block p-4 text-black fw-bold">
-        {{ firstName() }} <br>
-        {{ lastName }}
+        {{ fullName() }} <br>
     </div>
     <br>
 
+    <button (click)="changeFirst()">Chagne first name</button>
+    <button (click)="changeLast()">Chagne last name</button>
+
     <button (click)="sendData()">Send data to parent</button>
+
 </div>
+
 

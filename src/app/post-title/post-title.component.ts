@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, EventEmitter, Input, Output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-post-title',
@@ -11,18 +11,25 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, signal
 export class PostTitleComponent {
 
   constructor(){
-    const firstname =  this.firstName();
     setTimeout(() => {
-      this.firstName.set("after Change Signal");
-      this.lastName = "after Change Variable";
+      // this.lastName = "after Change Variable";
+      debugger;
     }, 5000);
   }
 
   // Signal Testing
-  firstName= signal("before Change Signal");
-  lastName= "before Change Variable";
+  firstName= signal<string>("Saadat");
+  lastName = signal<string>('Ali');
 
+  fullName= computed(()=>  this.firstName() +" " + this.lastName());
 
+  changeFirst(){
+    this.firstName.set('Babar');
+  }
+  changeLast(){
+    this.lastName.set('Azam');
+
+  }
 
   @Input() toChild: string = '';  
   // childData : string = 'This data is coming from child using @output & Event Emiter';
