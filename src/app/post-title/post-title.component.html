@@ -1,6 +1,13 @@
  <div class="container">
-    <p>post-title works!</p>
+    <p></p>
     {{ toChild }}
+
+    <h1>Signal Testing</h1>
+    <div class="bg-warning inline-block p-4 text-black fw-bold">
+        {{ firstName() }}
+    </div>
+    <br>
 
     <button (click)="sendData()">Send data to parent</button>
 </div>
+
