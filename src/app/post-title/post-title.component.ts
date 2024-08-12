@@ -28,8 +28,24 @@ export class PostTitleComponent {
   }
   changeLast(){
     this.lastName.set('Azam');
-
   }
+// changing Array signal
+
+  cityList = signal(['lahore','islamabad','karachi']);
+  addCity(){
+    this.cityList.set([...this.cityList(),'mirpur'])
+  }
+
+  // changing object signal
+ stuObj = signal({
+  name:'sadi',
+  city:'jehlum'
+ })
+
+ changeObj(){
+   this.stuObj.set({...this.stuObj(), city:'mirpur'});
+ }
+
 
   @Input() toChild: string = '';  
   // childData : string = 'This data is coming from child using @output & Event Emiter';
