@@ -91,12 +91,12 @@
               </tr>
             </thead>
             <tbody>
-                @for(dep of dept;track $index){
+                @for(dep of deptInfo;track $index){
                     <tr>
                         <th scope="row">{{ $index + 1 }}</th>
-                        <td>{{ dep.departmentName }}</td>
+                        <td>{{ dep.departmentId  }}</td>
                         <td>{{ dep.departmentLogo }}</td>
-                        <td>{{ dep.departmentId }}</td>
+                        <td>{{ dep.departmentName }}</td>
                         <td><button class="btn btn-success" (click)="editDept(dep)" >Edit</button></td>
                         <td><button class="btn btn-danger" (click)="deleteDept(dep.departmentId)" >Delete</button></td>
                       </tr>

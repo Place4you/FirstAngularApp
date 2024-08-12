@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { DepartmentSrvService } from '../../services/department-srv.service';
+import { IDepartment } from '../../../core/models/interface/IDepartment';
 
 @Component({
   selector: 'app-postapi',
@@ -22,7 +23,7 @@ export class PostapiComponent implements OnInit {
   adddept: string = "AddNewDepartment";
   url:string = '';
 
-
+  deptInfo: IDepartment [] = [];
   dept: any[]=[];
   departmentId: number= 0;
   departmentLogo = '';
@@ -77,7 +78,7 @@ export class PostapiComponent implements OnInit {
 
     this.depsrv.getallapi(this.getdept).subscribe(
       (res:any) => {
-        this.dept = res.data;
+        this.deptInfo = res.data;
         this.errorMessage = null;
         this.loading = false;
       },
