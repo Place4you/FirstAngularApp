@@ -30,7 +30,7 @@
           <a class="nav-link" routerLink="add-apicomp">API</a>
         </li>
         <li class="pt-2">
-          <select  [(ngModel)]="onRoleChange$" >
+          <select  [(ngModel)]="selectedRole" (click)="onRoleChange()" >
             <option value="">Select Role</option>
             <option value="User">Admin</option>
             <option value="Admin">User</option>

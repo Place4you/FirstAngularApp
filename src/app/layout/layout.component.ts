@@ -1,3 +1,4 @@
+import { DepartmentSrvService } from './../shared/services/department-srv.service';
 import { NgIf } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -12,7 +13,6 @@ import { Observable, Subject } from 'rxjs';
 })
 export class LayoutComponent{
 
-  onRoleChange$ : Subject<string> = new Subject<string>;
   selectedRole :string = "";
 
 
@@ -20,11 +20,21 @@ export class LayoutComponent{
   login:boolean= false;
   userName: string;
   
-  constructor(router: Router){
+  constructor(router: Router, private dept : DepartmentSrvService){
 
     const loggedUser = JSON.parse(localStorage.getItem('loggedUser') || '{}'); // Retrieve and parse the object
     this.userName = loggedUser.data.emailId || ''; // Access the fullName property and store it in a variable
     console.log(this.userName); // Output the fullName to the console
+
+
+
+  }
+
+  onRoleChange(role:string){
+    debugger;
+    this.dept.onRoleChange$.next(role);
+    console.log(role);
+    
   }
 
 
