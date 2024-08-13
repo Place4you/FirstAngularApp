@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
@@ -10,6 +11,10 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent{
+
+  onRoleChange$ : Subject<string> = new Subject<string>;
+  selectedRole :string = "";
+
 
   router = inject(Router)
   login:boolean= false;
