@@ -13,7 +13,6 @@ export class PostTitleComponent {
   constructor(){
     setTimeout(() => {
       // this.lastName = "after Change Variable";
-      debugger;
     }, 5000);
   }
 

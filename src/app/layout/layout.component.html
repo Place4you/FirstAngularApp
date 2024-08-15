@@ -29,16 +29,15 @@
         <li class="nav-item mx-3">
           <a class="nav-link" routerLink="add-apicomp">API</a>
         </li>
-        <li class="pt-2">
-          <select  [(ngModel)]="selectedRole" (click)="onRoleChange()" >
-            <option value="">Select Role</option>
-            <option value="User">Admin</option>
-            <option value="Admin">User</option>
-          </select>
-        </li>
       </ul>
+      <form>
+        <select name="selectedRole" [(ngModel)]="selectedRole" (ngModelChange)="onRoleChange($event)">
+          <option value="">Select Role</option>
+          <option value="User">Admin</option>
+          <option value="Admin">User</option>
+        </select>
       <span class="navbar-text text-white me-3">Welcome,<b> {{ userName}} </b></span>
-      <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+      <button class="btn btn-danger" (click)="onLogout()">Logout</button></form>
     </div>
   </div>
 </nav>

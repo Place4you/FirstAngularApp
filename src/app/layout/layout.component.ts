@@ -1,17 +1,18 @@
+import { FormsModule, NgModel } from '@angular/forms';
 import { DepartmentSrvService } from './../shared/services/department-srv.service';
 import { NgIf } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, NgModule, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NgIf],
+  imports: [RouterOutlet, RouterLink, NgIf, FormsModule],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent{
+export class LayoutComponent implements ngModelchagne{
 
   selectedRole :string = "";
 
@@ -30,12 +31,14 @@ export class LayoutComponent{
 
   }
 
-  onRoleChange(role:string){
-    debugger;
-    this.dept.onRoleChange$.next(role);
-    console.log(role);
+    onRoleChange(role:string){
+      debugger;
+      this.dept.onRoleChange$.next(role);
+      console.log(role);
     
+
   }
+
 
 
  
