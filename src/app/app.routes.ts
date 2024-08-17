@@ -26,6 +26,7 @@ export const routes: Routes = [
       path: 'login',
       component: LoginComponent
     },
+  ]
     {
       path: 'signup',
       component: SignupComponent
@@ -33,7 +34,7 @@ export const routes: Routes = [
     {
       path: 'layout',
       component: LayoutComponent,
-      canActivate: [loginCheckGuard],
+      // canActivate: [loginCheckGuard],
       children: [
         {
           path: 'add-header',

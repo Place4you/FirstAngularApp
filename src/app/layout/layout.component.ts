@@ -12,10 +12,10 @@ import { Observable, Subject } from 'rxjs';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent implements ngModelchagne{
+export class LayoutComponent{
 
   selectedRole :string = "";
-
+  
 
   router = inject(Router)
   login:boolean= false;

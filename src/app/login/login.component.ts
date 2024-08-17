@@ -42,6 +42,28 @@ export class LoginComponent {
         })
 
       }
+
+  onHardLogin(){
+    const loginUser = {
+      emailId: this.userObj.emailId,
+      Password: this.userObj.Password
+    };
+
+    if(loginUser.emailId == "sadi" && loginUser.Password == "123")
+    {
+      debugger;
+        localStorage.setItem( 'loggedUser', loginUser.emailId + loginUser.Password);
+        alert('Login successful!');
+        this.router.navigateByUrl('/layout/add-navbar');
+      }
+      else{
+        debugger;
+        alert('Login after signup failed. Please try logging in manually.');
+
+      }
+  }
+
+
   }
 
 
