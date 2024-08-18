@@ -33,8 +33,8 @@
       <form>
         <select name="selectedRole" [(ngModel)]="selectedRole" (ngModelChange)="onRoleChange($event)">
           <option value="">Select Role</option>
-          <option value="User">Admin</option>
-          <option value="Admin">User</option>
+          <option value="Admin">Admin</option>
+          <option value="User">User</option>
         </select>
       <span class="navbar-text text-white me-3">Welcome,<b> {{ userName}} </b></span>
       <button class="btn btn-danger" (click)="onLogout()">Logout</button></form>

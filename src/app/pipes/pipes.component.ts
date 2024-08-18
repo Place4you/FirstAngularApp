@@ -9,14 +9,12 @@ import { DepartmentSrvService } from '../shared/services/department-srv.service'
   templateUrl: './pipes.component.html',
   styleUrl: './pipes.component.css'
 })
-export class PipesComponent {
-constructor(private dept:DepartmentSrvService){}
+export class PipesComponent{
 currentRole:any;
-OnInit(){
+constructor(private dept:DepartmentSrvService){
     this.dept.onRoleChange$.subscribe((role:string)=>{
-      debugger;
-    console.log(role);
     this.currentRole = role;
+    console.log(role);
     
   });
 }
