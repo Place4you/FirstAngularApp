@@ -34,7 +34,7 @@ export const routes: Routes = [
     {
       path: 'layout',
       component: LayoutComponent,
-      // canActivate: [loginCheckGuard],
+      canActivate:[loginCheckGuard],
       children: [
         {
           path: 'add-header',

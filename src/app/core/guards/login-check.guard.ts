@@ -8,7 +8,6 @@ export const loginCheckGuard: CanActivateFn = (route, state) => {
 
   const loggedCheck = localStorage.getItem('loggedUser');
   if(loggedCheck){
-    router.navigateByUrl('/layout/add-navbar');
     return true;
 
   }

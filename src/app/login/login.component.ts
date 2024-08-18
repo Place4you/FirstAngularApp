@@ -51,10 +51,9 @@ export class LoginComponent {
 
     if(loginUser.emailId == "sadi" && loginUser.Password == "123")
     {
-      debugger;
-        localStorage.setItem( 'loggedUser', loginUser.emailId + loginUser.Password);
+        // localStorage.setItem( 'loggedUser', loginUser.emailId + loginUser.Password);
+        this.router.navigateByUrl('/layout/add-header');
         alert('Login successful!');
-        this.router.navigateByUrl('/layout/add-navbar');
       }
       else{
         debugger;
