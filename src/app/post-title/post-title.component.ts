@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, EventEmitter, Input, Output, signal } from '@angular/core';
+import { DepartmentSrvService } from '../shared/services/department-srv.service';
 
 @Component({
   selector: 'app-post-title',
@@ -9,11 +10,24 @@ import { ChangeDetectionStrategy, Component, computed, EventEmitter, Input, Outp
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostTitleComponent {
-
-  constructor(){
+  subjectVar:string = '';
+  behaviourSubject:string = '';
+  constructor( private dept:DepartmentSrvService){
     setTimeout(() => {
       // this.lastName = "after Change Variable";
     }, 5000);
+
+    //subscribe to Subject
+    this.dept.onRoleChange$.subscribe((res:string)=>{
+      this.subjectVar =  res;
+    })
+
+    //susbcribe to Behaviour Subject
+    this.dept.onRoleChangeBehaviour$.subscribe((res:string)=>{
+      debugger;
+      this.behaviourSubject = res;
+    });
+
   }
 
   // Signal Testing

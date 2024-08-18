@@ -10,11 +10,17 @@ import { DepartmentSrvService } from '../shared/services/department-srv.service'
   styleUrl: './pipes.component.css'
 })
 export class PipesComponent{
-currentRole:any;
+currentRole:string = '';
+behaviourSubject:string = '';
 constructor(private dept:DepartmentSrvService){
     this.dept.onRoleChange$.subscribe((role:string)=>{
     this.currentRole = role;
-    console.log(role);
+
+    //susbcribe to Behaviour Subject
+    this.dept.onRoleChangeBehaviour$.subscribe((res:string)=>{
+      debugger;
+      this.behaviourSubject = res;
+        });
     
   });
 }
