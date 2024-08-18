@@ -33,6 +33,7 @@ export class LayoutComponent{
 
     onRoleChange(role:string){
       this.dept.onRoleChange$.next(role);
+      this.dept.onRoleChangeBehaviour$.next(role);
       console.log(role);
     
 

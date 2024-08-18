@@ -1,5 +1,5 @@
 import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, DoCheck, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { DepartmentSrvService } from '../shared/services/department-srv.service';
 
 @Component({
@@ -9,20 +9,24 @@ import { DepartmentSrvService } from '../shared/services/department-srv.service'
   templateUrl: './pipes.component.html',
   styleUrl: './pipes.component.css'
 })
-export class PipesComponent{
-currentRole:string = '';
-behaviourSubject:string = '';
-constructor(private dept:DepartmentSrvService){
-    this.dept.onRoleChange$.subscribe((role:string)=>{
-    this.currentRole = role;
+export class PipesComponent implements DoCheck{
+  subjectVar:string = '';
+  behaviourSubject:string = '';
+constructor(private dept:DepartmentSrvService){}
 
-    //susbcribe to Behaviour Subject
-    this.dept.onRoleChangeBehaviour$.subscribe((res:string)=>{
-      debugger;
-      this.behaviourSubject = res;
-        });
-    
+ngDoCheck(){
+  //subscribe to Subject
+  this.dept.onRoleChange$.subscribe((res:string)=>{
+    debugger;
+    this.subjectVar =  res;
+  })
+
+  //susbcribe to Behaviour Subject
+  this.dept.onRoleChangeBehaviour$.subscribe((res:string)=>{
+    debugger;
+    this.behaviourSubject = res;
   });
+
 }
 
   showcase: string = 'This is loaded Dynamically from HEADER' ;

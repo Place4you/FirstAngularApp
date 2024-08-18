@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, EventEmitter, Input, Output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, EventEmitter, Input, OnChanges, Output, signal, SimpleChanges, DoCheck } from '@angular/core';
 import { DepartmentSrvService } from '../shared/services/department-srv.service';
 
 @Component({
@@ -7,27 +7,31 @@ import { DepartmentSrvService } from '../shared/services/department-srv.service'
   imports: [],
   templateUrl: './post-title.component.html',
   styleUrl: './post-title.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PostTitleComponent {
+export class PostTitleComponent implements DoCheck{
+
   subjectVar:string = '';
   behaviourSubject:string = '';
-  constructor( private dept:DepartmentSrvService){
-    setTimeout(() => {
-      // this.lastName = "after Change Variable";
-    }, 5000);
 
+  constructor( private dept:DepartmentSrvService){
+
+
+
+  }
+
+  ngDoCheck(){
     //subscribe to Subject
     this.dept.onRoleChange$.subscribe((res:string)=>{
+      debugger;
       this.subjectVar =  res;
     })
-
+  
     //susbcribe to Behaviour Subject
     this.dept.onRoleChangeBehaviour$.subscribe((res:string)=>{
       debugger;
       this.behaviourSubject = res;
     });
-
+  
   }
 
   // Signal Testing
