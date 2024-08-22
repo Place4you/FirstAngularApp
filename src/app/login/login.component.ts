@@ -56,7 +56,6 @@ export class LoginComponent {
         alert('Login successful!');
       }
       else{
-        debugger;
         alert('Login after signup failed. Please try logging in manually.');
 
       }

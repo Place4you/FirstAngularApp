@@ -7,7 +7,7 @@ import { DepartmentSrvService } from '../shared/services/department-srv.service'
   imports: [],
   templateUrl: './post-title.component.html',
   styleUrl: './post-title.component.css',
-})
+  })
 export class PostTitleComponent implements DoCheck{
 
   subjectVar:string = '';
@@ -22,13 +22,11 @@ export class PostTitleComponent implements DoCheck{
   ngDoCheck(){
     //subscribe to Subject
     this.dept.onRoleChange$.subscribe((res:string)=>{
-      debugger;
       this.subjectVar =  res;
     })
   
     //susbcribe to Behaviour Subject
     this.dept.onRoleChangeBehaviour$.subscribe((res:string)=>{
-      debugger;
       this.behaviourSubject = res;
     });
   

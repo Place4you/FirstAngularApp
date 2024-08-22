@@ -17,13 +17,11 @@ constructor(private dept:DepartmentSrvService){}
 ngDoCheck(){
   //subscribe to Subject
   this.dept.onRoleChange$.subscribe((res:string)=>{
-    debugger;
     this.subjectVar =  res;
   })
 
   //susbcribe to Behaviour Subject
   this.dept.onRoleChangeBehaviour$.subscribe((res:string)=>{
-    debugger;
     this.behaviourSubject = res;
   });
 
