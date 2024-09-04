@@ -43,22 +43,26 @@ export class LoginComponent {
 
       }
 
-  onHardLogin(){
+
+  onHardLogin() {
     const loginUser = {
       emailId: this.userObj.emailId,
       Password: this.userObj.Password
     };
-
-    if(loginUser.emailId == "admin" && loginUser.Password == "admin")
-    {
-        localStorage.setItem( 'loggedUser', loginUser.emailId + loginUser.Password);
-        this.router.navigateByUrl('/layout/add-header');
-        alert('Login successful!');
-      }
-      else{
-        alert('Login failed. Incorrect Info');
-
-      }
+  
+    if (loginUser.emailId === "sadi" && loginUser.Password === "123") {
+      const userData = {
+        user: loginUser.emailId,
+        pass: loginUser.Password
+      };
+  
+      // Convert the object to a JSON string and store it in localStorage
+      localStorage.setItem('data', JSON.stringify(userData));
+      this.router.navigateByUrl('/layout/user-list');
+      alert('Login successful!');
+    } else {
+      alert('Login after signup failed. Please try logging in manually.');
+    }
   }
 
 
