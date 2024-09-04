@@ -51,7 +51,7 @@ export class LoginComponent {
 
     if(loginUser.emailId == "admin" && loginUser.Password == "admin")
     {
-        // localStorage.setItem( 'loggedUser', loginUser.emailId + loginUser.Password);
+        localStorage.setItem( 'loggedUser', loginUser.emailId + loginUser.Password);
         this.router.navigateByUrl('/add-header');
         alert('Login successful!');
       }
