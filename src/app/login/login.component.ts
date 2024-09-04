@@ -50,7 +50,7 @@ export class LoginComponent {
       Password: this.userObj.Password
     };
   
-    if (loginUser.emailId === "sadi" && loginUser.Password === "123") {
+    if (loginUser.emailId === "admin" && loginUser.Password === "admin") {
       const userData = {
         user: loginUser.emailId,
         pass: loginUser.Password
