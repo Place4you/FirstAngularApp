@@ -49,7 +49,7 @@ export class LoginComponent {
       Password: this.userObj.Password
     };
 
-    if(loginUser.emailId == "sadi" && loginUser.Password == "123")
+    if(loginUser.emailId == "admin" && loginUser.Password == "admin")
     {
         // localStorage.setItem( 'loggedUser', loginUser.emailId + loginUser.Password);
         this.router.navigateByUrl('/layout/add-header');
