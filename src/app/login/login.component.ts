@@ -52,11 +52,11 @@ export class LoginComponent {
     if(loginUser.emailId == "admin" && loginUser.Password == "admin")
     {
         // localStorage.setItem( 'loggedUser', loginUser.emailId + loginUser.Password);
-        this.router.navigateByUrl('/layout/add-header');
+        this.router.navigateByUrl('/add-header');
         alert('Login successful!');
       }
       else{
-        alert('Login after signup failed. Please try logging in manually.');
+        alert('Login failed. Incorrect Info');
 
       }
   }
